@@ -1,68 +1,55 @@
-<div class="signup-container">
-  <h2>Sign Up</h2>
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        formControlName="email"
-        type="email"
-        placeholder="Enter your email"
-        class="form-control"
-      />
-      @if (signUpForm.get('email')?.touched && signUpForm.get('email')?.value === '') {
+<div class="container">
+  <div class="signup-card">
+    <h2>Sign Up</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter your email" class="form-control" />
+        @if (signUpForm.get('email')?.touched && signUpForm.get('email')?.value === '') {
         <div class="error">
           Email is required.
         </div>
-      } @else if (signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid) {
+        } @else if (signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid) {
         <div class="error">
           Enter a valid email.
         </div>
-      }
-    </div>
+        }
+      </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        formControlName="password"
-        type="password"
-        placeholder="Enter your password"
-        class="form-control"
-      />
-      @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.value === '') {
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" placeholder="Enter your password"
+          class="form-control" />
+        @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.value === '') {
         <div class="error">
           Password is required.
         </div>
-      } @else if (signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid) {
+        } @else if (signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid) {
         <div class="error">
           Password must be at least 6 characters long.
         </div>
-      }
-    </div>
+        }
+      </div>
 
-    <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        id="confirmPassword"
-        formControlName="confirmPassword"
-        type="password"
-        placeholder="Confirm your password"
-        class="form-control"
-      />
-      @if (signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.value === '') {
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password"
+          placeholder="Confirm your password" class="form-control" />
+        @if (signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.value === '') {
         <div class="error">
           Please confirm your password.
         </div>
-      } @else if (signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.value !== signUpForm.get('password')?.value) {
+        } @else if (signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.value !==
+        signUpForm.get('password')?.value) {
         <div class="error">
           Passwords do not match.
         </div>
-      }
-    </div>
+        }
+      </div>
 
-    <div class="actions">
-      <button type="submit" class="btn-submit" [disabled]="!signUpForm.valid">Sign Up</button>
-    </div>
-  </form>
+      <div class="actions">
+        <button type="submit" class="btn-submit" [disabled]="!signUpForm.valid">Sign Up</button>
+      </div>
+    </form>
+  </div>
 </div>
